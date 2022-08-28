@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.mapper.SysUserMapper">
+
+    <resultMap id="sysUserResultMap" type="com.chen.dto.SysUserDTO">
+        <result property="realName" column="real_name"></result>
+        <result property="createTime" column="create_time"></result>
+    </resultMap>
+
+    <select id="list" resultMap="sysUserResultMap">
+        select * from sys_user
+        <where>
+            <if test="username != null and username != ''">username like concat('%', #{username}, '%')</if>
+            <if test="createTime != null">and create_time = #{createTime}</if>
+            and deleted = 0
+        </where>
+        order by create_time desc
+    </select>
+
+    <insert id="insert">
+        insert sys_user (username, password, real_name, gender, email, mobile, create_time)
+        values (#{username}, #{password}, #{realName}, #{gender}, #{email}, #{mobile}, now())
+    </insert>
+
+    <insert id="batchInsert">
+        insert sys_user (username, password, real_name, gender, email, mobile, create_time)
+        values
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.username}, #{item.password}, #{item.realName}, #{item.gender}, #{item.email}, #{item.mobile}, now())
+        </foreach>
+    </insert>
+
+    <update id="delUserIds">
+        update sys_user set deleted = 1 where id in
+        <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </update>
+
+
+</mapper>

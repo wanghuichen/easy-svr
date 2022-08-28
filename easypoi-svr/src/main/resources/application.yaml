@@ -1,0 +1,74 @@
+server:
+  port: 8345
+  servlet:
+    context-path: /easy-svr/
+
+spring:
+  #  security:
+  #    user:
+  #      name: admin
+  #      password: 111111
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 300MB
+      max-request-size: 300MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  mvc:
+    async:
+      request-timeout: 30000
+
+
+
+
+  datasource:
+    #    driverClassName: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://192.168.105.1:3306/db_zuoye_exam?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=true
+    #    username: zuoye
+    #    password: zuoye111111
+
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/db_easy_exam?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=true
+    username: root
+    password: 111111
+
+    #    url: jdbc:mysql://39.105.13.178:3306/db_demo_exam?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=true
+    #    username: root
+    #    password: 123456
+
+#    url: jdbc:mysql://127.0.0.1:3306/db_demo_exam?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=true
+#    username: root
+#    password: 111111
+
+
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 2
+    minIdle: 2
+    maxActive: 120
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validateQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+logging:
+  config: classpath:log4j.properties
+
+globalset:
+  upload_root_path: D://upload/
+  # /work/class_manager/upload/
+#  upload_url_path: http://39.105.13.178:8369/work/class_manager/upload/
+
+# 配置扫描xml文件
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

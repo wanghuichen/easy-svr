@@ -1,0 +1,30 @@
+{
+  "id": "3237519",
+  "name": "小王Java编程",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "145451",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "18610495",
+      "name": "资源",
+      "font_class": "ziyuan",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "12975229",
+      "name": "控制台",
+      "font_class": "kongzhitai",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    }
+  ]
+}

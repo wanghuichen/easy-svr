@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3514034 */
+  src: url('iconfont.woff2?t=1657525310298') format('woff2'),
+       url('iconfont.woff?t=1657525310298') format('woff'),
+       url('iconfont.ttf?t=1657525310298') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-oppo:before {
+  content: "\e82d";
+}
+
+.icon-huawei:before {
+  content: "\e82e";
+}
+
+.icon-meizu:before {
+  content: "\e82f";
+}
+
+.icon-xiaomi:before {
+  content: "\e832";
+}
+
+.icon-honor-of-kings-line:before {
+  content: "\e966";
+}
+
+.icon-vivo:before {
+  content: "\e622";
+}
+
